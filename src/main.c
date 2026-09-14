@@ -7,6 +7,9 @@ int main() {
     double subtotal;
     double percentualPeso;
     double adicionalPeso;
+    int modalidade;
+    double percentualModalidade;
+    double adicionalModalidade;
 
     printf("=== Simulador de Entregas ===\n\n");
 
@@ -24,6 +27,14 @@ int main() {
     while (peso <= 0) {
         printf("Peso invalido. Digite um valor maior que zero: ");
         scanf("%lf", &peso);
+    }
+
+    printf("Digite a modalidade (1-Economica, 2-Express, 3-Prioridade): ");
+    scanf("%d", &modalidade);
+
+    while (modalidade < 1 || modalidade > 3) {
+        printf("Modalidade invalida. Digite 1, 2 ou 3: ");
+        scanf("%d", &modalidade);
     }
 
     if (distancia <= 5) {
@@ -50,11 +61,23 @@ int main() {
 
     adicionalPeso = subtotal * percentualPeso;
 
+    if (modalidade == 1) {
+        percentualModalidade = 0.00;
+    } else if (modalidade == 2) {
+        percentualModalidade = 0.15;
+    } else {
+        percentualModalidade = 0.30;
+    }
+
+    adicionalModalidade = subtotal * percentualModalidade;
+
     printf("\nDistancia informada: %.2f km\n", distancia);
     printf("Peso informado: %.2f kg\n", peso);
+    printf("Modalidade: %d\n", modalidade);
     printf("Valor base: R$ %.2f\n", valorBase);
     printf("Subtotal inicial: R$ %.2f\n", subtotal);
     printf("Adicional de peso: R$ %.2f\n", adicionalPeso);
+    printf("Adicional de modalidade: R$ %.2f\n", adicionalModalidade);
 
     return 0;
 }
