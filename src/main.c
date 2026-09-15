@@ -15,10 +15,28 @@ int main() {
     int tentativasAdicionais;
     double valorTentativas;
     double valorTotal;
+    int continuar;
+    int totalEntregas;
+double totalSessao;
+int quantidadeEconomica;
+int quantidadeExpress;
+int quantidadePrioridade;
+double maiorEntrega;
+double menorEntrega;
 
-    printf("=== Simulador de Entregas ===\n\n");
+ printf("=== Simulador de Entregas ===\n\n");
 
+totalEntregas = 0;
+totalSessao = 0.00;
+quantidadeEconomica = 0;
+quantidadeExpress = 0;
+quantidadePrioridade = 0;
+maiorEntrega = 0.00;
+menorEntrega = 0.00;
+
+    do {
     printf("Digite a distancia da entrega em km: ");
+
     scanf("%lf", &distancia);
 
     while (distancia <= 0) {
@@ -112,6 +130,15 @@ int main() {
     printf("Valor da protecao: R$ %.2f\n", valorProtecao);
     printf("Valor das tentativas adicionais: R$ %.2f\n", valorTentativas);
     printf("Valor total da entrega: R$ %.2f\n", valorTotal);
+    printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
+scanf("%d", &continuar);
+
+while (continuar != 0 && continuar != 1) {
+    printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+    scanf("%d", &continuar);
+}
+
+} while (continuar == 1);
 
     return 0;
 }
