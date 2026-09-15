@@ -119,18 +119,45 @@ menorEntrega = 0.00;
     valorTentativas = tentativasAdicionais * 4.00;
     valorTotal = subtotal + adicionalPeso + adicionalModalidade + valorProtecao + valorTentativas;
 
-    printf("\n=== RESUMO DA ENTREGA ===\n");
-    printf("Distancia informada: %.2f km\n", distancia);
-    printf("Peso informado: %.2f kg\n", peso);
-    printf("Modalidade: %d\n", modalidade);
-    printf("Valor base: R$ %.2f\n", valorBase);
-    printf("Subtotal inicial: R$ %.2f\n", subtotal);
-    printf("Adicional de peso: R$ %.2f\n", adicionalPeso);
-    printf("Adicional de modalidade: R$ %.2f\n", adicionalModalidade);
-    printf("Valor da protecao: R$ %.2f\n", valorProtecao);
-    printf("Valor das tentativas adicionais: R$ %.2f\n", valorTentativas);
-    printf("Valor total da entrega: R$ %.2f\n", valorTotal);
-    printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
+  valorTotal = subtotal + adicionalPeso + adicionalModalidade + valorProtecao + valorTentativas;
+
+printf("\n=== RESUMO DA ENTREGA ===\n");
+printf("Distancia informada: %.2f km\n", distancia);
+printf("Peso informado: %.2f kg\n", peso);
+printf("Modalidade: %d\n", modalidade);
+printf("Valor base: R$ %.2f\n", valorBase);
+printf("Subtotal inicial: R$ %.2f\n", subtotal);
+printf("Adicional de peso: R$ %.2f\n", adicionalPeso);
+printf("Adicional de modalidade: R$ %.2f\n", adicionalModalidade);
+printf("Valor da protecao: R$ %.2f\n", valorProtecao);
+printf("Valor das tentativas adicionais: R$ %.2f\n", valorTentativas);
+printf("Valor total da entrega: R$ %.2f\n", valorTotal);
+
+totalEntregas++;
+totalSessao += valorTotal;
+
+if (modalidade == 1) {
+    quantidadeEconomica++;
+} else if (modalidade == 2) {
+    quantidadeExpress++;
+} else {
+    quantidadePrioridade++;
+}
+
+if (totalEntregas == 1) {
+    maiorEntrega = valorTotal;
+    menorEntrega = valorTotal;
+} else {
+    if (valorTotal > maiorEntrega) {
+        maiorEntrega = valorTotal;
+    }
+
+    if (valorTotal < menorEntrega) {
+        menorEntrega = valorTotal;
+    }
+}
+
+printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
 scanf("%d", &continuar);
 
 while (continuar != 0 && continuar != 1) {
@@ -140,5 +167,14 @@ while (continuar != 0 && continuar != 1) {
 
 } while (continuar == 1);
 
-    return 0;
+printf("\n=== RESUMO DA SESSAO ===\n");
+printf("Total de entregas: %d\n", totalEntregas);
+printf("Valor total da sessao: R$ %.2f\n", totalSessao);
+printf("Quantidade Economica: %d\n", quantidadeEconomica);
+printf("Quantidade Express: %d\n", quantidadeExpress);
+printf("Quantidade Prioridade: %d\n", quantidadePrioridade);
+printf("Maior valor de entrega: R$ %.2f\n", maiorEntrega);
+printf("Menor valor de entrega: R$ %.2f\n", menorEntrega);
+
+return 0;
 }
