@@ -1,5 +1,21 @@
 #include <stdio.h>
 
+double calcularValorBase(double distancia) {
+    double valorBase;
+
+    if (distancia <= 5) {
+        valorBase = 8.00;
+    } else if (distancia <= 15) {
+        valorBase = 12.00;
+    } else if (distancia <= 30) {
+        valorBase = 18.00;
+    } else {
+        valorBase = 25.00;
+    }
+
+    return valorBase;
+}
+
 int main() {
     double distancia;
     double peso;
@@ -76,15 +92,7 @@ menorEntrega = 0.00;
         scanf("%d", &tentativasAdicionais);
     }
 
-    if (distancia <= 5) {
-        valorBase = 8.00;
-    } else if (distancia <= 15) {
-        valorBase = 12.00;
-    } else if (distancia <= 30) {
-        valorBase = 18.00;
-    } else {
-        valorBase = 25.00;
-    }
+valorBase = calcularValorBase(distancia);
 
     subtotal = valorBase + (distancia * 1.20);
 
