@@ -15,7 +15,21 @@ double calcularValorBase(double distancia) {
 
     return valorBase;
 }
+double calcularAdicionalPeso(double peso, double subtotal) {
+    double percentualPeso;
 
+    if (peso <= 2) {
+        percentualPeso = 0.00;
+    } else if (peso <= 5) {
+        percentualPeso = 0.05;
+    } else if (peso <= 10) {
+        percentualPeso = 0.10;
+    } else {
+        percentualPeso = 0.20;
+    }
+
+    return subtotal * percentualPeso;
+}
 int main() {
     double distancia;
     double peso;
@@ -96,17 +110,7 @@ valorBase = calcularValorBase(distancia);
 
     subtotal = valorBase + (distancia * 1.20);
 
-    if (peso <= 2) {
-        percentualPeso = 0.00;
-    } else if (peso <= 5) {
-        percentualPeso = 0.05;
-    } else if (peso <= 10) {
-        percentualPeso = 0.10;
-    } else {
-        percentualPeso = 0.20;
-    }
-
-    adicionalPeso = subtotal * percentualPeso;
+adicionalPeso = calcularAdicionalPeso(peso, subtotal);
 
     if (modalidade == 1) {
         percentualModalidade = 0.00;
