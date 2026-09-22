@@ -11,7 +11,7 @@ Um simulador desenvolvido em linguagem C para calcular o valor de entregas a par
 * **Aluno:** Gustavo da Silva Rodrigues
 * **Curso:** Análise e Desenvolvimento de Sistemas
 * **Disciplina:** Lógica de Programação e Algoritmos
-* **Professor:** Jéssica Sousa Oliveira
+* **Professor:** Jessica Sousa Oliveira
 
 ---
 
@@ -19,7 +19,7 @@ Um simulador desenvolvido em linguagem C para calcular o valor de entregas a par
 
 O projeto consiste no desenvolvimento de um **Simulador de Entregas**, executado pelo terminal, capaz de processar várias entregas durante uma mesma sessão.
 
-Para cada entrega, o programa recebe informações como:
+Para cada entrega, o programa recebe:
 
 * 📍 Distância da entrega;
 * ⚖️ Peso da encomenda;
@@ -46,7 +46,7 @@ O sistema calcula o valor da entrega seguindo as regras definidas no enunciado:
 * Valor fixo de proteção;
 * Valor das tentativas adicionais.
 
-Os adicionais percentuais são calculados sobre o **subtotal inicial**, sem aplicação de juros compostos entre os adicionais.
+Os adicionais percentuais são calculados sobre o **subtotal inicial**, sem aplicação de um adicional sobre o outro.
 
 ### ✅ Validação dos dados
 
