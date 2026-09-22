@@ -1,17 +1,36 @@
 #include <stdio.h>
 
+#define VALOR_BASE_ATE_5 8.00
+#define VALOR_BASE_ATE_15 12.00
+#define VALOR_BASE_ATE_30 18.00
+#define VALOR_BASE_ACIMA_30 25.00
+
+#define TAXA_POR_KM 1.20
+
+#define ADICIONAL_PESO_ATE_2 0.00
+#define ADICIONAL_PESO_ATE_5 0.05
+#define ADICIONAL_PESO_ATE_10 0.10
+#define ADICIONAL_PESO_ACIMA_10 0.20
+
+#define ADICIONAL_MODALIDADE_ECONOMICA 0.00
+#define ADICIONAL_MODALIDADE_EXPRESS 0.15
+#define ADICIONAL_MODALIDADE_PRIORIDADE 0.30
+
+#define VALOR_PROTECAO 7.50
+#define VALOR_TENTATIVA_ADICIONAL 4.00
+
 double calcularValorBase(double distancia) {
     double valorBase;
 
-    if (distancia <= 5) {
-        valorBase = 8.00;
-    } else if (distancia <= 15) {
-        valorBase = 12.00;
-    } else if (distancia <= 30) {
-        valorBase = 18.00;
-    } else {
-        valorBase = 25.00;
-    }
+  if (distancia <= 5) {
+    valorBase = VALOR_BASE_ATE_5;
+} else if (distancia <= 15) {
+    valorBase = VALOR_BASE_ATE_15;
+} else if (distancia <= 30) {
+    valorBase = VALOR_BASE_ATE_30;
+} else {
+    valorBase = VALOR_BASE_ACIMA_30;
+}
 
     return valorBase;
 }
@@ -19,35 +38,34 @@ double calcularValorBase(double distancia) {
 double calcularAdicionalPeso(double peso, double subtotal) {
     double percentualPeso;
 
-    if (peso <= 2) {
-        percentualPeso = 0.00;
-    } else if (peso <= 5) {
-        percentualPeso = 0.05;
-    } else if (peso <= 10) {
-        percentualPeso = 0.10;
-    } else {
-        percentualPeso = 0.20;
-    }
-
+  if (peso <= 2) {
+    percentualPeso = ADICIONAL_PESO_ATE_2;
+} else if (peso <= 5) {
+    percentualPeso = ADICIONAL_PESO_ATE_5;
+} else if (peso <= 10) {
+    percentualPeso = ADICIONAL_PESO_ATE_10;
+} else {
+    percentualPeso = ADICIONAL_PESO_ACIMA_10;
+}
     return subtotal * percentualPeso;
 }
 
 double calcularAdicionalModalidade(int modalidade, double subtotal) {
     double percentualModalidade;
 
-    if (modalidade == 1) {
-        percentualModalidade = 0.00;
-    } else if (modalidade == 2) {
-        percentualModalidade = 0.15;
-    } else {
-        percentualModalidade = 0.30;
-    }
+  if (modalidade == 1) {
+    percentualModalidade = ADICIONAL_MODALIDADE_ECONOMICA;
+} else if (modalidade == 2) {
+    percentualModalidade = ADICIONAL_MODALIDADE_EXPRESS;
+} else {
+    percentualModalidade = ADICIONAL_MODALIDADE_PRIORIDADE;
+}
 
     return subtotal * percentualModalidade;
 }
 
 double calcularValorTentativas(int tentativasAdicionais) {
-    return tentativasAdicionais * 4.00;
+    return tentativasAdicionais * VALOR_TENTATIVA_ADICIONAL;
 }
 
 double validarDistancia() {
@@ -176,17 +194,17 @@ int main() {
 
         valorBase = calcularValorBase(distancia);
 
-        subtotal = valorBase + (distancia * 1.20);
+        subtotal = valorBase + (distancia * TAXA_POR_KM);
 
         adicionalPeso = calcularAdicionalPeso(peso, subtotal);
 
         adicionalModalidade = calcularAdicionalModalidade(modalidade, subtotal);
 
-        if (protecao == 1) {
-            valorProtecao = 7.50;
-        } else {
-            valorProtecao = 0.00;
-        }
+if (protecao == 1) {
+    valorProtecao = VALOR_PROTECAO;
+} else {
+    valorProtecao = 0.00;
+}
 
         valorTentativas = calcularValorTentativas(tentativasAdicionais);
 
