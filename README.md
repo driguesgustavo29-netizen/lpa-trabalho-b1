@@ -9,6 +9,7 @@ Um simulador desenvolvido em linguagem C para calcular o valor de entregas a par
 ##  Identificação
 
 * **Aluno:** Gustavo da Silva Rodrigues
+* **Matrícula:** UC24103405
 * **Curso:** Análise e Desenvolvimento de Sistemas
 * **Disciplina:** Lógica de Programação e Algoritmos
 * **Professor:** Jessica Sousa Oliveira
