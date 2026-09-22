@@ -161,3 +161,76 @@ Foram realizados os testes previstos no enunciado do trabalho.
  4	          15 km	          5 kg	     Prioridade	        Não         	1	         R$ 44,50
  5	          20 km	          7 kg	     Econômica	        Sim         	0	         R$ 53,70
  6	          35 km        	12 kg	     Prioridade     	Sim	            3	         R$ 120,00
+
+## Testes de validação
+Também foram testados valores inválidos para verificar o funcionamento das validações:
+
+Distância igual a zero;
+Distância negativa;
+Peso igual a zero;
+Peso negativo;
+Modalidade fora do intervalo de 1 a 3;
+Proteção diferente de 0 ou 1;
+Número negativo de tentativas;
+Opção de continuação diferente de 0 ou 1.
+
+Os valores inválidos foram rejeitados e o programa solicitou uma nova entrada.
+
+## Versionamento
+O desenvolvimento foi realizado de forma progressiva utilizando commits no GitHub.
+
+Durante a implementação foram adicionados gradualmente:
+
+Estrutura inicial do programa;
+Entrada e validação da distância;
+Cálculo por distância;
+Cálculo do adicional por peso;
+Cálculo da modalidade;
+Cálculo do valor total;
+Contadores e acumuladores da sessão;
+Controle de maior e menor entrega;
+Modularização dos cálculos;
+Modularização das validações;
+Cálculo da média da sessão;
+Organização das constantes utilizadas pelo sistema.
+
+Os commits representam etapas reais da evolução do projeto.
+
+## uso de i.a
+Foi utilizada Inteligência Artificial como ferramenta de apoio durante o desenvolvimento do projeto.
+
+Ferramenta utilizada
+
+ChatGPT — OpenAI
+
+Finalidades
+
+A ferramenta foi utilizada principalmente para:
+
+Auxiliar na compreensão dos conceitos de programação em C;
+Explicar erros de compilação;
+Sugerir formas de organizar o código;
+Auxiliar na criação e organização de funções;
+Revisar cálculos e regras do sistema;
+Auxiliar na elaboração da documentação do projeto;
+Sugerir casos de teste.
+Exemplos de prompts utilizados
+
+Alguns exemplos de solicitações realizadas:
+
+"Explique esse código em C de forma simples."
+
+"Me ajude a criar uma função para calcular o adicional por peso."
+
+"Verifique se esse cálculo está de acordo com as regras do trabalho."
+
+"Me ajude a testar o programa com os casos exigidos pelo enunciado."
+
+Alterações realizadas pelo aluno
+
+As sugestões fornecidas pela Inteligência Artificial foram analisadas e adaptadas ao projeto. O código foi testado, corrigido e executado pelo aluno durante o desenvolvimento.
+
+A utilização da ferramenta teve como objetivo auxiliar o aprendizado e o desenvolvimento do projeto, não substituindo a compreensão e verificação do código.
+
+## Fontes externas
+Não foram utilizados códigos de terceiros ou bibliotecas externas além dos recursos padrão da linguagem C.
