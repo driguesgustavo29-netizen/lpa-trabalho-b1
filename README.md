@@ -143,7 +143,6 @@ gcc src/main.c -o simulador
 Se a compilação for realizada corretamente, será gerado o executável `simulador`.
 
 ---
-
 ## 🚀 Como executar
 
 Após a compilação, execute:
