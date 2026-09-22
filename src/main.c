@@ -45,7 +45,9 @@ double calcularAdicionalModalidade(int modalidade, double subtotal) {
 
     return subtotal * percentualModalidade;
 }
-
+double calcularValorTentativas(int tentativasAdicionais) {
+    return tentativasAdicionais * 4.00;
+}
 int main() {
     double distancia;
     double peso;
@@ -135,7 +137,7 @@ int main() {
             valorProtecao = 0.00;
         }
 
-        valorTentativas = tentativasAdicionais * 4.00;
+   valorTentativas = calcularValorTentativas(tentativasAdicionais);
 
         valorTotal = subtotal + adicionalPeso + adicionalModalidade
                    + valorProtecao + valorTentativas;
