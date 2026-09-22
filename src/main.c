@@ -150,6 +150,7 @@ int main() {
     int continuar;
     int totalEntregas;
     double totalSessao;
+    double mediaEntrega;
     int quantidadeEconomica;
     int quantidadeExpress;
     int quantidadePrioridade;
@@ -192,6 +193,7 @@ int main() {
         valorTotal = subtotal + adicionalPeso + adicionalModalidade
                    + valorProtecao + valorTentativas;
 
+
         printf("\n=== RESUMO DA ENTREGA ===\n");
         printf("Distancia informada: %.2f km\n", distancia);
         printf("Peso informado: %.2f kg\n", peso);
@@ -231,10 +233,11 @@ int main() {
         continuar = validarContinuacao();
 
     } while (continuar == 1);
-
+mediaEntrega = totalSessao / totalEntregas;
     printf("\n=== RESUMO DA SESSAO ===\n");
     printf("Total de entregas: %d\n", totalEntregas);
     printf("Valor total da sessao: R$ %.2f\n", totalSessao);
+    printf("Media por entrega: R$ %.2f\n", mediaEntrega);
     printf("Quantidade Economica: %d\n", quantidadeEconomica);
     printf("Quantidade Express: %d\n", quantidadeExpress);
     printf("Quantidade Prioridade: %d\n", quantidadePrioridade);
