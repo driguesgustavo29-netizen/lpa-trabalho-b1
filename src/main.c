@@ -45,18 +45,102 @@ double calcularAdicionalModalidade(int modalidade, double subtotal) {
 
     return subtotal * percentualModalidade;
 }
+
 double calcularValorTentativas(int tentativasAdicionais) {
     return tentativasAdicionais * 4.00;
 }
+
+double validarDistancia() {
+    double distancia;
+
+    printf("Digite a distancia da entrega em km: ");
+    scanf("%lf", &distancia);
+
+    while (distancia <= 0) {
+        printf("Distancia invalida. Digite um valor maior que zero: ");
+        scanf("%lf", &distancia);
+    }
+
+    return distancia;
+}
+
+double validarPeso() {
+    double peso;
+
+    printf("Digite o peso da entrega em kg: ");
+    scanf("%lf", &peso);
+
+    while (peso <= 0) {
+        printf("Peso invalido. Digite um valor maior que zero: ");
+        scanf("%lf", &peso);
+    }
+
+    return peso;
+}
+
+int validarModalidade() {
+    int modalidade;
+
+    printf("Digite a modalidade (1-Economica, 2-Express, 3-Prioridade): ");
+    scanf("%d", &modalidade);
+
+    while (modalidade < 1 || modalidade > 3) {
+        printf("Modalidade invalida. Digite 1, 2 ou 3: ");
+        scanf("%d", &modalidade);
+    }
+
+    return modalidade;
+}
+
+int validarProtecao() {
+    int protecao;
+
+    printf("Deseja protecao? (1-Sim, 0-Nao): ");
+    scanf("%d", &protecao);
+
+    while (protecao != 0 && protecao != 1) {
+        printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+        scanf("%d", &protecao);
+    }
+
+    return protecao;
+}
+
+int validarTentativas() {
+    int tentativasAdicionais;
+
+    printf("Digite o numero de tentativas adicionais: ");
+    scanf("%d", &tentativasAdicionais);
+
+    while (tentativasAdicionais < 0) {
+        printf("Numero invalido. Digite 0 ou mais: ");
+        scanf("%d", &tentativasAdicionais);
+    }
+
+    return tentativasAdicionais;
+}
+
+int validarContinuacao() {
+    int continuar;
+
+    printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
+    scanf("%d", &continuar);
+
+    while (continuar != 0 && continuar != 1) {
+        printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+        scanf("%d", &continuar);
+    }
+
+    return continuar;
+}
+
 int main() {
     double distancia;
     double peso;
     double valorBase;
     double subtotal;
-    double percentualPeso;
     double adicionalPeso;
     int modalidade;
-    double percentualModalidade;
     double adicionalModalidade;
     int protecao;
     double valorProtecao;
@@ -83,45 +167,11 @@ int main() {
     menorEntrega = 0.00;
 
     do {
-        printf("Digite a distancia da entrega em km: ");
-        scanf("%lf", &distancia);
-
-        while (distancia <= 0) {
-            printf("Distancia invalida. Digite um valor maior que zero: ");
-            scanf("%lf", &distancia);
-        }
-
-        printf("Digite o peso da entrega em kg: ");
-        scanf("%lf", &peso);
-
-        while (peso <= 0) {
-            printf("Peso invalido. Digite um valor maior que zero: ");
-            scanf("%lf", &peso);
-        }
-
-        printf("Digite a modalidade (1-Economica, 2-Express, 3-Prioridade): ");
-        scanf("%d", &modalidade);
-
-        while (modalidade < 1 || modalidade > 3) {
-            printf("Modalidade invalida. Digite 1, 2 ou 3: ");
-            scanf("%d", &modalidade);
-        }
-
-        printf("Deseja protecao? (1-Sim, 0-Nao): ");
-        scanf("%d", &protecao);
-
-        while (protecao != 0 && protecao != 1) {
-            printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
-            scanf("%d", &protecao);
-        }
-
-        printf("Digite o numero de tentativas adicionais: ");
-        scanf("%d", &tentativasAdicionais);
-
-        while (tentativasAdicionais < 0) {
-            printf("Numero invalido. Digite 0 ou mais: ");
-            scanf("%d", &tentativasAdicionais);
-        }
+        distancia = validarDistancia();
+        peso = validarPeso();
+        modalidade = validarModalidade();
+        protecao = validarProtecao();
+        tentativasAdicionais = validarTentativas();
 
         valorBase = calcularValorBase(distancia);
 
@@ -137,7 +187,7 @@ int main() {
             valorProtecao = 0.00;
         }
 
-   valorTentativas = calcularValorTentativas(tentativasAdicionais);
+        valorTentativas = calcularValorTentativas(tentativasAdicionais);
 
         valorTotal = subtotal + adicionalPeso + adicionalModalidade
                    + valorProtecao + valorTentativas;
@@ -178,13 +228,7 @@ int main() {
             }
         }
 
-        printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
-        scanf("%d", &continuar);
-
-        while (continuar != 0 && continuar != 1) {
-            printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
-            scanf("%d", &continuar);
-        }
+        continuar = validarContinuacao();
 
     } while (continuar == 1);
 
