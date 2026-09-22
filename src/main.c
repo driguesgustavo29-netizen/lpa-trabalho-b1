@@ -15,6 +15,7 @@ double calcularValorBase(double distancia) {
 
     return valorBase;
 }
+
 double calcularAdicionalPeso(double peso, double subtotal) {
     double percentualPeso;
 
@@ -30,6 +31,21 @@ double calcularAdicionalPeso(double peso, double subtotal) {
 
     return subtotal * percentualPeso;
 }
+
+double calcularAdicionalModalidade(int modalidade, double subtotal) {
+    double percentualModalidade;
+
+    if (modalidade == 1) {
+        percentualModalidade = 0.00;
+    } else if (modalidade == 2) {
+        percentualModalidade = 0.15;
+    } else {
+        percentualModalidade = 0.30;
+    }
+
+    return subtotal * percentualModalidade;
+}
+
 int main() {
     double distancia;
     double peso;
@@ -47,146 +63,137 @@ int main() {
     double valorTotal;
     int continuar;
     int totalEntregas;
-double totalSessao;
-int quantidadeEconomica;
-int quantidadeExpress;
-int quantidadePrioridade;
-double maiorEntrega;
-double menorEntrega;
+    double totalSessao;
+    int quantidadeEconomica;
+    int quantidadeExpress;
+    int quantidadePrioridade;
+    double maiorEntrega;
+    double menorEntrega;
 
- printf("=== Simulador de Entregas ===\n\n");
+    printf("=== Simulador de Entregas ===\n\n");
 
-totalEntregas = 0;
-totalSessao = 0.00;
-quantidadeEconomica = 0;
-quantidadeExpress = 0;
-quantidadePrioridade = 0;
-maiorEntrega = 0.00;
-menorEntrega = 0.00;
+    totalEntregas = 0;
+    totalSessao = 0.00;
+    quantidadeEconomica = 0;
+    quantidadeExpress = 0;
+    quantidadePrioridade = 0;
+    maiorEntrega = 0.00;
+    menorEntrega = 0.00;
 
     do {
-    printf("Digite a distancia da entrega em km: ");
-
-    scanf("%lf", &distancia);
-
-    while (distancia <= 0) {
-        printf("Distancia invalida. Digite um valor maior que zero: ");
+        printf("Digite a distancia da entrega em km: ");
         scanf("%lf", &distancia);
-    }
 
-    printf("Digite o peso da entrega em kg: ");
-    scanf("%lf", &peso);
+        while (distancia <= 0) {
+            printf("Distancia invalida. Digite um valor maior que zero: ");
+            scanf("%lf", &distancia);
+        }
 
-    while (peso <= 0) {
-        printf("Peso invalido. Digite um valor maior que zero: ");
+        printf("Digite o peso da entrega em kg: ");
         scanf("%lf", &peso);
-    }
 
-    printf("Digite a modalidade (1-Economica, 2-Express, 3-Prioridade): ");
-    scanf("%d", &modalidade);
+        while (peso <= 0) {
+            printf("Peso invalido. Digite um valor maior que zero: ");
+            scanf("%lf", &peso);
+        }
 
-    while (modalidade < 1 || modalidade > 3) {
-        printf("Modalidade invalida. Digite 1, 2 ou 3: ");
+        printf("Digite a modalidade (1-Economica, 2-Express, 3-Prioridade): ");
         scanf("%d", &modalidade);
-    }
 
-    printf("Deseja protecao? (1-Sim, 0-Nao): ");
-    scanf("%d", &protecao);
+        while (modalidade < 1 || modalidade > 3) {
+            printf("Modalidade invalida. Digite 1, 2 ou 3: ");
+            scanf("%d", &modalidade);
+        }
 
-    while (protecao != 0 && protecao != 1) {
-        printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+        printf("Deseja protecao? (1-Sim, 0-Nao): ");
         scanf("%d", &protecao);
-    }
 
-    printf("Digite o numero de tentativas adicionais: ");
-    scanf("%d", &tentativasAdicionais);
+        while (protecao != 0 && protecao != 1) {
+            printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+            scanf("%d", &protecao);
+        }
 
-    while (tentativasAdicionais < 0) {
-        printf("Numero invalido. Digite 0 ou mais: ");
+        printf("Digite o numero de tentativas adicionais: ");
         scanf("%d", &tentativasAdicionais);
-    }
 
-valorBase = calcularValorBase(distancia);
+        while (tentativasAdicionais < 0) {
+            printf("Numero invalido. Digite 0 ou mais: ");
+            scanf("%d", &tentativasAdicionais);
+        }
 
-    subtotal = valorBase + (distancia * 1.20);
+        valorBase = calcularValorBase(distancia);
 
-adicionalPeso = calcularAdicionalPeso(peso, subtotal);
+        subtotal = valorBase + (distancia * 1.20);
 
-    if (modalidade == 1) {
-        percentualModalidade = 0.00;
-    } else if (modalidade == 2) {
-        percentualModalidade = 0.15;
-    } else {
-        percentualModalidade = 0.30;
-    }
+        adicionalPeso = calcularAdicionalPeso(peso, subtotal);
 
-    adicionalModalidade = subtotal * percentualModalidade;
+        adicionalModalidade = calcularAdicionalModalidade(modalidade, subtotal);
 
-    if (protecao == 1) {
-        valorProtecao = 7.50;
-    } else {
-        valorProtecao = 0.00;
-    }
+        if (protecao == 1) {
+            valorProtecao = 7.50;
+        } else {
+            valorProtecao = 0.00;
+        }
 
-    valorTentativas = tentativasAdicionais * 4.00;
-    valorTotal = subtotal + adicionalPeso + adicionalModalidade + valorProtecao + valorTentativas;
+        valorTentativas = tentativasAdicionais * 4.00;
 
-  valorTotal = subtotal + adicionalPeso + adicionalModalidade + valorProtecao + valorTentativas;
+        valorTotal = subtotal + adicionalPeso + adicionalModalidade
+                   + valorProtecao + valorTentativas;
 
-printf("\n=== RESUMO DA ENTREGA ===\n");
-printf("Distancia informada: %.2f km\n", distancia);
-printf("Peso informado: %.2f kg\n", peso);
-printf("Modalidade: %d\n", modalidade);
-printf("Valor base: R$ %.2f\n", valorBase);
-printf("Subtotal inicial: R$ %.2f\n", subtotal);
-printf("Adicional de peso: R$ %.2f\n", adicionalPeso);
-printf("Adicional de modalidade: R$ %.2f\n", adicionalModalidade);
-printf("Valor da protecao: R$ %.2f\n", valorProtecao);
-printf("Valor das tentativas adicionais: R$ %.2f\n", valorTentativas);
-printf("Valor total da entrega: R$ %.2f\n", valorTotal);
+        printf("\n=== RESUMO DA ENTREGA ===\n");
+        printf("Distancia informada: %.2f km\n", distancia);
+        printf("Peso informado: %.2f kg\n", peso);
+        printf("Modalidade: %d\n", modalidade);
+        printf("Valor base: R$ %.2f\n", valorBase);
+        printf("Subtotal inicial: R$ %.2f\n", subtotal);
+        printf("Adicional de peso: R$ %.2f\n", adicionalPeso);
+        printf("Adicional de modalidade: R$ %.2f\n", adicionalModalidade);
+        printf("Valor da protecao: R$ %.2f\n", valorProtecao);
+        printf("Valor das tentativas adicionais: R$ %.2f\n", valorTentativas);
+        printf("Valor total da entrega: R$ %.2f\n", valorTotal);
 
-totalEntregas++;
-totalSessao += valorTotal;
+        totalEntregas++;
+        totalSessao += valorTotal;
 
-if (modalidade == 1) {
-    quantidadeEconomica++;
-} else if (modalidade == 2) {
-    quantidadeExpress++;
-} else {
-    quantidadePrioridade++;
-}
+        if (modalidade == 1) {
+            quantidadeEconomica++;
+        } else if (modalidade == 2) {
+            quantidadeExpress++;
+        } else {
+            quantidadePrioridade++;
+        }
 
-if (totalEntregas == 1) {
-    maiorEntrega = valorTotal;
-    menorEntrega = valorTotal;
-} else {
-    if (valorTotal > maiorEntrega) {
-        maiorEntrega = valorTotal;
-    }
+        if (totalEntregas == 1) {
+            maiorEntrega = valorTotal;
+            menorEntrega = valorTotal;
+        } else {
+            if (valorTotal > maiorEntrega) {
+                maiorEntrega = valorTotal;
+            }
 
-    if (valorTotal < menorEntrega) {
-        menorEntrega = valorTotal;
-    }
-}
+            if (valorTotal < menorEntrega) {
+                menorEntrega = valorTotal;
+            }
+        }
 
-printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
-scanf("%d", &continuar);
+        printf("\nDeseja cadastrar outra entrega? (1-Sim, 0-Nao): ");
+        scanf("%d", &continuar);
 
-while (continuar != 0 && continuar != 1) {
-    printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
-    scanf("%d", &continuar);
-}
+        while (continuar != 0 && continuar != 1) {
+            printf("Opcao invalida. Digite 1 para Sim ou 0 para Nao: ");
+            scanf("%d", &continuar);
+        }
 
-} while (continuar == 1);
+    } while (continuar == 1);
 
-printf("\n=== RESUMO DA SESSAO ===\n");
-printf("Total de entregas: %d\n", totalEntregas);
-printf("Valor total da sessao: R$ %.2f\n", totalSessao);
-printf("Quantidade Economica: %d\n", quantidadeEconomica);
-printf("Quantidade Express: %d\n", quantidadeExpress);
-printf("Quantidade Prioridade: %d\n", quantidadePrioridade);
-printf("Maior valor de entrega: R$ %.2f\n", maiorEntrega);
-printf("Menor valor de entrega: R$ %.2f\n", menorEntrega);
+    printf("\n=== RESUMO DA SESSAO ===\n");
+    printf("Total de entregas: %d\n", totalEntregas);
+    printf("Valor total da sessao: R$ %.2f\n", totalSessao);
+    printf("Quantidade Economica: %d\n", quantidadeEconomica);
+    printf("Quantidade Express: %d\n", quantidadeExpress);
+    printf("Quantidade Prioridade: %d\n", quantidadePrioridade);
+    printf("Maior valor de entrega: R$ %.2f\n", maiorEntrega);
+    printf("Menor valor de entrega: R$ %.2f\n", menorEntrega);
 
-return 0;
+    return 0;
 }
