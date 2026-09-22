@@ -1,4 +1,4 @@
-# 📦 Simulador de Entregas
+#  Simulador de Entregas
 
 > **Trabalho do 1º Bimestre — Linguagem de Programação**
 
@@ -6,7 +6,7 @@ Um simulador desenvolvido em linguagem C para calcular o valor de entregas a par
 
 ---
 
-## 👨‍💻 Identificação
+##  Identificação
 
 * **Aluno:** Gustavo da Silva Rodrigues
 * **Curso:** Análise e Desenvolvimento de Sistemas
@@ -15,17 +15,17 @@ Um simulador desenvolvido em linguagem C para calcular o valor de entregas a par
 
 ---
 
-## 📋 Sobre o projeto
+##  Sobre o projeto
 
 O projeto consiste no desenvolvimento de um **Simulador de Entregas**, executado pelo terminal, capaz de processar várias entregas durante uma mesma sessão.
 
 Para cada entrega, o programa recebe:
 
-* 📍 Distância da entrega;
-* ⚖️ Peso da encomenda;
-* 🚚 Modalidade de entrega;
-* 🛡️ Contratação de proteção;
-* 🔄 Quantidade de tentativas adicionais.
+*  Distância da entrega;
+*  Peso da encomenda;
+*  Modalidade de entrega;
+*  Contratação de proteção;
+*  Quantidade de tentativas adicionais.
 
 A partir dessas informações, o sistema calcula automaticamente o valor final da entrega e apresenta um resumo da operação.
 
@@ -33,9 +33,9 @@ Ao finalizar a sessão, o programa apresenta um resumo geral contendo os princip
 
 ---
 
-## ⚙️ Funcionalidades implementadas
+##  Funcionalidades implementadas
 
-### 💰 Cálculo do valor da entrega
+###  Cálculo do valor da entrega
 
 O sistema calcula o valor da entrega seguindo as regras definidas no enunciado:
 
@@ -48,7 +48,7 @@ O sistema calcula o valor da entrega seguindo as regras definidas no enunciado:
 
 Os adicionais percentuais são calculados sobre o **subtotal inicial**, sem aplicação de um adicional sobre o outro.
 
-### ✅ Validação dos dados
+###  Validação dos dados
 
 O programa verifica se os valores informados estão dentro das regras estabelecidas.
 
@@ -63,7 +63,7 @@ São validados:
 
 Quando um valor inválido é informado, o programa solicita uma nova entrada.
 
-### 📊 Resumo da sessão
+###  Resumo da sessão
 
 Ao finalizar o cadastro das entregas, o programa apresenta:
 
@@ -78,7 +78,7 @@ Ao finalizar o cadastro das entregas, o programa apresenta:
 
 ---
 
-## 🧩 Organização das funções
+##  Organização das funções
 
 O programa foi dividido em funções para evitar que toda a lógica fique concentrada na função `main()`.
 
@@ -106,7 +106,7 @@ A função `main()` é responsável por coordenar o fluxo geral do programa, uti
 
 ---
 
-## 🗂️ Estrutura do projeto
+##  Estrutura do projeto
 
 ```text
 lpa-trabalho-b1/
@@ -130,7 +130,7 @@ lpa-trabalho-b1/
 
 ---
 
-## ▶️ Como compilar
+##  Como compilar
 
 O programa pode ser compilado utilizando o GCC.
 
@@ -159,7 +159,7 @@ simulador.exe
 
 ---
 
-## 🧪 Testes realizados
+##  Testes realizados
 
 Foram realizados os testes previstos no enunciado do trabalho.
 
@@ -172,7 +172,7 @@ Foram realizados os testes previstos no enunciado do trabalho.
 | 5     |     20 km |  7 kg | Econômica  | Sim      |          0 |  **R$ 53,70** |
 | 6     |     35 km | 12 kg | Prioridade | Sim      |          3 | **R$ 120,00** |
 
-### 🔎 Testes de validação
+###  Testes de validação
 
 Também foram realizados testes com valores inválidos para verificar o funcionamento das validações:
 
@@ -189,7 +189,7 @@ Os valores inválidos foram rejeitados e o programa solicitou uma nova entrada.
 
 ---
 
-## 📈 Versionamento
+##  Versionamento
 
 O desenvolvimento foi realizado de forma progressiva utilizando commits no GitHub.
 
@@ -212,7 +212,7 @@ Os commits representam etapas reais da evolução do projeto.
 
 ---
 
-## 🤖 Uso de Inteligência Artificial
+##  Uso de Inteligência Artificial
 
 Foi utilizada Inteligência Artificial como ferramenta de apoio durante o desenvolvimento do projeto.
 
@@ -252,13 +252,13 @@ A utilização da ferramenta teve como objetivo auxiliar o aprendizado e o desen
 
 ---
 
-## 📚 Fontes externas
+##  Fontes externas
 
 Não foram utilizados códigos de terceiros ou bibliotecas externas além dos recursos padrão da linguagem C.
 
 ---
 
-## ✅ Status do projeto
+##  Status do projeto
 
 **Projeto concluído e testado.**
 
