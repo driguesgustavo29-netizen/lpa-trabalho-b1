@@ -115,3 +115,49 @@ lpa-trabalho-b1/
 │
 └── src/
     └── main.c
+
+## Tecnologías utilizadas
+
+| `Linguagem: C |
+| `Compilador: GCC |
+| `Execução: Terminal |
+| `Versionamento: Git / GitHub |
+
+---
+
+## ▶️Como Compilar
+
+O programa pode ser compilado utilizando o GCC.
+
+Dentro da pasta principal do projeto, execute:
+
+gcc src/main.c -o simulador
+
+Se a compilação for realizada corretamente, será gerado o executável simulador.
+
+---
+
+## Como executar
+
+Após a compilação, execute:
+
+./simulador
+
+No Windows, também é possível executar o arquivo:
+
+simulador.exe
+
+---
+
+## Testes realizados
+
+Foram realizados os testes previstos no enunciado do trabalho.
+
+| Teste |	| Distância |	| Peso |	| Modalidade |	| Proteção |	| Tentativas |	| Resultado |
+|---|---|
+|1|	          3 km	          1 kg	     Econômica	        Não	             0	         R$ 11,60
+ 2	          5 km	          2 kg	     Express	        Sim	             0	         R$ 23,60
+ 3	          8 km	          3 kg	     Express	        Sim            	2	         R$ 41,42
+ 4	          15 km	          5 kg	     Prioridade	        Não         	1	         R$ 44,50
+ 5	          20 km	          7 kg	     Econômica	        Sim         	0	         R$ 53,70
+ 6	          35 km        	12 kg	     Prioridade     	Sim	            3	         R$ 120,00
